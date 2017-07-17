@@ -1,0 +1,17 @@
+'.source.cps':
+
+    'open("")':
+        'prefix': 'open'
+        'body': 'open(url, method)'
+        'description': 'Open endpoint/URL'
+        'rightLabelHTML': '<span style="color:#ea5906">open(url, method)</span>'
+    'var':
+        'prefix': 'var'
+        'body': 'var variableName'
+        'description': 'Set variable'
+        'rightLabelHTML': '<span style="color:#ea5906">var variableName</span>'
+    'setStepName()':
+        'prefix': 'setStepName'
+        'body': 'setStepName(stepName)'
+        'description': 'Assign a name to the step'
+        'rightLabelHTML': '<span style="color:#ea5906">setStepName(stepName)</span>'

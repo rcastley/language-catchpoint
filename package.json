@@ -1,0 +1,25 @@
+{
+  "name": "language-catchpoint",
+  "version": "0.1.0",
+  "description": "Catchpoint Scripting Language",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcastley/language-catchpoint"
+  },
+  "bugs": {
+    "url": "https://github.com/rcastley/language-catchpoint/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {},
+  "keywords": [
+    "language",
+    "snippets",
+    "selenium",
+    "syntax",
+    "atom",
+    "editor"
+  ]
+}

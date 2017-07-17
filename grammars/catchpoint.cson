@@ -1,0 +1,29 @@
+scopeName: 'source.cps'
+fileTypes: ['cps']
+name: 'Catchpoint Script'
+patterns: [
+    {
+        begin: '//'
+        end: '\\n'
+        name: 'comment.line.double-slash.cps'
+    }
+    {
+        begin: '/\\*'
+        end: '\\*/'
+        name: 'comment.block.cps'
+    }
+    {
+        begin: '\\"'
+        end: '\\"'
+        name: 'string.quoted.double.cps'
+    }
+    {
+        begin: '\\\''
+        end: '\\\''
+        name: 'string.quoted.single.cps'
+    }
+    {
+        'match': '\\b(open|waitForNoRequest|setStepName|setIndicator|runScript|storeScriptVariable|var)\\b'
+        'name': 'keyword.control.cps'
+    }
+]
