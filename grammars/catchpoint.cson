@@ -13,17 +13,29 @@ patterns: [
         name: 'comment.block.cps'
     }
     {
-        begin: '\\"'
-        end: '\\"'
+        begin: '"'
+        beginCaptures:
+          '0':
+              name: 'punctuation.definition.string.begin.cps'
+        end: '"'
+        endCaptures:
+          '0':
+            name: 'punctuation.definition.string.end.cps'
         name: 'string.quoted.double.cps'
     }
     {
-        begin: '\\\''
-        end: '\\\''
-        name: 'string.quoted.single.cps'
+        begin: '\''
+          beginCaptures:
+            '0':
+              name: 'punctuation.definition.string.begin.cps'
+            end: '\''
+          endCaptures:
+            '0':
+              name: 'punctuation.definition.string.end.cps'
+          name: 'string.quoted.single.cps'
     }
     {
-        'match': '\\b(open|waitForNoRequest|setStepName|setIndicator|runScript|storeScriptVariable|var)\\b'
-        'name': 'keyword.control.cps'
+        match: '\\b(open|waitForNoRequest|setStepName|setIndicator|runScript|storeScriptVariable|var|setHeader)\\b'
+        name: 'keyword.control.cps'
     }
 ]
