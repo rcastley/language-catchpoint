@@ -1,7 +1,7 @@
 {
   "name": "language-catchpoint",
   "version": "0.1.0",
-  "description": "Catchpoint Scripting Language",
+  "description": "Catchpoint Selenium Scripting Language",
   "repository": {
     "type": "git",
     "url": "https://github.com/rcastley/language-catchpoint"
