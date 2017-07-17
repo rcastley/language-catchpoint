@@ -1,8 +1,8 @@
 '.source.cps':
 
-    'open("")':
+    'open':
         'prefix': 'open'
-        'body': 'open(url, method)'
+        'body': 'open(${1:"http://url", "GET"})$2'
         'description': 'Open endpoint/URL'
         'rightLabelHTML': '<span style="color:#ea5906">open(url, method)</span>'
     'var':
@@ -10,7 +10,7 @@
         'body': 'var variableName'
         'description': 'Set variable'
         'rightLabelHTML': '<span style="color:#ea5906">var variableName</span>'
-    'setStepName()':
+    'setStepName':
         'prefix': 'setStepName'
         'body': 'setStepName(stepName)'
         'description': 'Assign a name to the step'
