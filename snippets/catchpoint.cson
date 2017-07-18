@@ -2,16 +2,31 @@
 
     'open':
         'prefix': 'open'
-        'body': 'open(${1:"http://url", "GET"})$2'
+        'body': 'open(${1:"http://", "GET"})$2'
         'description': 'Open endpoint/URL'
         'rightLabelHTML': '<span style="color:#ea5906">open(url, method)</span>'
-    'var':
-        'prefix': 'var'
-        'body': 'var variableName'
-        'description': 'Set variable'
-        'rightLabelHTML': '<span style="color:#ea5906">var variableName</span>'
     'setStepName':
         'prefix': 'setStepName'
-        'body': 'setStepName(stepName)'
-        'description': 'Assign a name to the step'
+        'body': 'setStepName(${1:"name"})$2'
+        'description': 'To assign names to each step a transaction creates'
         'rightLabelHTML': '<span style="color:#ea5906">setStepName(stepName)</span>'
+    'setNavigatePostData':
+        'prefix': 'setNavigatePostData'
+        'body': 'setNavigatePostData(${1:"data"})$2'
+        'description': 'This command is used to send POST data to the root request. Adding this command after open command converts the request to a POST request which by default will be a GET request.'
+        'rightLabelHTML': '<span style="color:#ea5906">setNavigatePostData(data)</span>'
+    'setHeader':
+        'prefix': 'setHeader'
+        'body': 'setHeader(${1:"key", "value", "pattern <optional>"})$2'
+        'description': 'Used for dynamically assigning a particular HTTP request header for either the root-request (when no child-request-pattern is used) or child-requests (if the child-request-pattern is used).'
+        'rightLabelHTML': '<span style="color:#ea5906">setHeader(key, value, pattern <optional>)</span>'
+    'setHeaderAll':
+        'prefix': 'setHeaderAll'
+        'body': 'setHeaderAll(${1:"key", "value"})$2'
+        'description': 'Same as "setHeader", except it will apply to all steps of a transaction. It dynamically assigns particular HTTP request header for either the root-request (when no child-request pattern is used) or child-request (if child-request pattern is used) for all steps of a transaction.'
+        'rightLabelHTML': '<span style="color:#ea5906">setHeader(key, value, pattern <optional>)</span>'
+    'storeGlobalVariable':
+        'prefix': 'storeGlobalVariable'
+        'body': 'storeGlobalVariable(${1:"<macros>", "<name>"})$2'
+        'description': 'This transaction verb is used to store the variable data globally, and this data can be used later on via the "${globalVariable(…)}" macro.'
+        'rightLabelHTML': '<span style="color:#ea5906">storeGlobalVariable(<macros>, <name>)</span>'
