@@ -27,6 +27,6 @@
         'rightLabelHTML': '<span style="color:#ea5906">setHeader(key, value, pattern <optional>)</span>'
     'storeGlobalVariable':
         'prefix': 'storeGlobalVariable'
-        'body': 'storeGlobalVariable(${1:"<macros>", "<name>"})$2'
+        'body': 'storeGlobalVariable(${1:"<macros>", ""<name>"})$2'
         'description': 'This transaction verb is used to store the variable data globally, and this data can be used later on via the "${globalVariable(…)}" macro.'
-        'rightLabelHTML': '<span style="color:#ea5906">storeGlobalVariable(<macros>, <name>)</span>'
+        'rightLabelHTML': '<span style="color:#ea5906">storeGlobalVariable(&lt;macros&gt;, &lt;name&gt;)</span>'
