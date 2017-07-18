@@ -3,40 +3,20 @@ fileTypes: ['cps']
 name: 'Catchpoint Script'
 patterns: [
     {
-        begin: '//'
+        begin: '^//'
         end: '\\n'
         name: 'comment.line.double-slash.cps'
     }
     {
-        begin: '/\\*'
-        end: '\\*/'
-        name: 'comment.block.cps'
-    }
-    {
-        begin: '"'
-        beginCaptures:
-          '0':
-              name: 'punctuation.definition.string.begin.cps'
-        end: '"'
-        endCaptures:
-          '0':
-            name: 'punctuation.definition.string.end.cps'
-        name: 'string.quoted.double.cps'
-    }
-    {
-        begin: '\''
-          beginCaptures:
-            '0':
-              name: 'punctuation.definition.string.begin.cps'
-            end: '\''
-          endCaptures:
-            '0':
-              name: 'punctuation.definition.string.end.cps'
-          name: 'string.quoted.single.cps'
-    }
-    {
-        'match': '\\b(assert|assertHtmlSource|assertHttpResponseCode|assertHttpResponseHeader|assertNotHtmlSource|assertNotHttpResponseCode|assertNotHttpResponseHeader|open|openWhile|pause|setHeader|setHeaderAll|setIndicator|setNavigatePostData|setStepName|setTracepoint|storeGlobalVariable|storeVariable|verify|verifyHtmlSource|verifyHttpResponseCode|verifyHttpResponseHeader|verifyNotHtmlSource|verifyNotHttpResponseCode|verifyNotHttpResponseHeader)\\b'
-        'name': 'keyword.control.cps'
+        captures:
+          '1':
+            name: 'markup.bold.cps'
+          '2':
+            name: 'markup.cps'
+          '3':
+            name: 'markup.cps'
+        match: '\\b(\\w+)\\([\'"]((?:[^\'"\\\\]|\\\\.)*)[\'"],?\\s?[\'"]?([^\'"]+)?[\'"]?\\)'
+        name: 'string.other.cps'
     }
     {
         'match': '\\b(AsnName|AsnValue|Base64|CityId|CityName|ContinentName|CountryName|Extract|ExtractChild|ExtractVariable|File|Global\\sVariable|Hash|Hex|HostRequestAuthority|HostRequestHost|HostRequestPath|HostRequestPathAndQuery|HostRequestQuery|HostRequestUrl|If|IpVersion|IspId|IspName|LocationId|LocationLatitude|LocationLongitude|LocationName|NetworkType|Password|Random|RandomGuid|RandomList|RegionName|SequentialList|SequentialListByLocation|SequentialListByRun|Switch|TestId|Time|TimeDay|TimeDiff|TimeEpoch|TimeFormat|TimeTrim|UrlDecode|UrlEncode|UserName|Var)\\b'
