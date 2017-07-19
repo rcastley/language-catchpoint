@@ -27,8 +27,8 @@ patterns: [
                 name: 'keyword.other.cps'
             '3':
                 name: 'keyword.other.cps'
-        match: '(?i)(\\$\\{(Extract|ExtractVariable|var|GlobalVariable|SequentialListByRun)\\().*(\\)\\})'
-        name: 'meta.macro.cps'
+        match: '(?i)(\\$\\{(Extract|ExtractVariable|var|GlobalVariable|SequentialListByRun)\\(?).*?(\\)\\})'
+        name: 'string.quoted.double.cps'
     }
     {
         captures:
