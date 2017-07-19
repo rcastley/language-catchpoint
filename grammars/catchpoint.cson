@@ -1,15 +1,10 @@
 scopeName: 'source.cps'
 fileTypes: ['cps']
-name: 'Catchpoint Script'
 patterns: [
-    {
         begin: '^//'
         end: '\\n'
         name: 'comment.line.double-slash.cps'
     }
-
     {
-      match: '(?i)(\\$\\{\\w+\\()'
-      name: 'keyword.control.cps'
     }
 ]
