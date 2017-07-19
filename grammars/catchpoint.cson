@@ -1,10 +1,42 @@
 scopeName: 'source.cps'
 fileTypes: ['cps']
+name: 'Catchpoint Selenium Script'
 patterns: [
+    {    
         begin: '^//'
         end: '\\n'
         name: 'comment.line.double-slash.cps'
     }
     {
+        match: '(\\")'
+        name: 'string.quoted.double.cps'
+    }
+    {
+        match: '(?i)(open|setHeaderAll|setHeader|setStepName|setNavigatePostData|setTracepoint|setIndicator|storeGlobalVariable|assertHttpResponseCode|storeVariable)'
+        name: 'markup.bold.cps'
+    }
+    {
+        include: 'text.hyperlink'
+    }
+    {
+        include: 'text.xml'
+    }
+    {
+        captures:
+            '1':
+                name: 'keyword.other.cps'
+            '3':
+                name: 'keyword.other.cps'
+        match: '(?i)(\\$\\{(Extract|ExtractVariable|var|GlobalVariable|SequentialListByRun)\\().*(\\)\\})'
+        name: 'meta.macro.cps'
+    }
+    {
+        captures:
+            '1':
+                name: 'keyword.control.cps'
+            '2':
+                name: 'variable.language.default.cps'    
+        match: '(?i)(var)\\s*(\\w+)\\s+'
+        name: 'keyword.control.cps'
     }
 ]
