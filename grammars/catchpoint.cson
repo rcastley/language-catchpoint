@@ -12,7 +12,7 @@ patterns: [
         name: 'string.quoted.double.cps'
     }
     {
-        match: '(?i)(assertHtmlSource|assertHttpResponseCode|assertHttpResponseHeader|assertNotHtmlSource|assertNotHttpResponseCode|assertNotHttpResponseHeader|assert|open|openWhile|pause|setHeaderAll|setHeader|setIndicator|setNavigatePostData|setStepName|setTracepoint|storeGlobalVariable|storeVariable|verify|verifyHtmlSource|verifyHttpResponseCode|verifyHttpResponseHeader|verifyNotHtmlSource|verifyNotHttpResponseCode|verifyNotHttpResponseHeader)'
+        match: '(?i)(assertHtmlSource|assertHttpResponseCode|assertHttpResponseHeader|assertNotHtmlSource|assertNotHttpResponseCode|assertNotHttpResponseHeader|assert|open|openWhile|pause|setHeaderAll|setHeader|setIndicator|setNavigatePostData|setStepName|setTracepoint|storeGlobalVariable|storeVariable|verifyHtmlSource|verifyHttpResponseCode|verifyHttpResponseHeader|verifyNotHtmlSource|verifyNotHttpResponseCode|verifyNotHttpResponseHeader|verify)'
         name: 'markup.bold.cps'
     }
     {
