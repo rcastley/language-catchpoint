@@ -27,7 +27,7 @@ patterns: [
                 name: 'keyword.other.cps'
             '3':
                 name: 'keyword.other.cps'
-        match: '(?i)(\\$\\{(AsnName|AsnValue|Base64|CityId|CityName|ContinentName|CountryName|Extract|ExtractChild|ExtractVariable|File|GlobalVariable|Hash|Hex|HostRequestAuthority|HostRequestHost|HostRequestPath|HostRequestPathAndQuery|HostRequestQuery|HostRequestUrl|If|IpVersion|IspId|IspName|LocationId|LocationLatitude|LocationLongitude|LocationName|NetworkType|Password|Random|RandomGuid|RandomList|RegionName|SequentialList|SequentialListByLocation|SequentialListByRun|Switch|TestId|Time|TimeDay|TimeDiff|TimeEpoch|TimeFormat|TimeTrim|UrlDecode|UrlEncode|UserName|var)\\(?).*?(\\)\\})'
+        match: '(?i)(\\$\\{(AsnName|AsnValue|Base64|CityId|CityName|ContinentName|CountryName|ExtractChild|ExtractVariable|Extract|File|GlobalVariable|Hash|Hex|HostRequestAuthority|HostRequestHost|HostRequestPath|HostRequestPathAndQuery|HostRequestQuery|HostRequestUrl|If|IpVersion|IspId|IspName|LocationId|LocationLatitude|LocationLongitude|LocationName|NetworkType|Password|RandomGuid|RandomList|Random|RegionName|SequentialListByLocation|SequentialListByRun|SequentialList|Switch|TestId|TimeDay|TimeDiff|TimeEpoch|TimeFormat|TimeTrim|Time|UrlDecode|UrlEncode|UserName|var)\\(?).*?(\\)\\})'
         name: 'string.quoted.double.cps'
     }
     {
