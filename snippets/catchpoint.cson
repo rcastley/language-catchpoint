@@ -1,57 +1,128 @@
 '.source.cps':
 
+    'assert':
+        'prefix': 'assert'
+        'body': 'assert(${1:"<macros>/text"})$2'
+        'description': 'This command tests the current response with a simple text which can be the output of a macro. It becomes valid if the text is found in the response otherwise the tests fails.'
+        'rightLabelHTML': '<span style="color:#ea5906">assert(&lt;macros&gt;/text)</span>'
+
+    'assertHttpResponseCode':
+        'prefix': 'assertHttpResponseCode'
+        'body': 'assertHttpResponseCode(${1:"<macros>/text"})$2'
+        'description': 'This command tests the current HTTP response code with a text pattern which can be the output of a macro, e.g. "200". It becomes valid if the text is same as the response code otherwise the tests fails.'
+        'rightLabelHTML': '<span style="color:#ea5906">assertHttpResponseCode(&lt;macros&gt;/text)</span>'
+
+    'assertHttpResponseHeader':
+        'prefix': 'assertHttpResponseHeader'
+        'body': 'assertHttpResponseHeader(${1:"<macros>/responseHeaderKey","<macros>/text"})$2'
+        'description': 'This command tests the value of a key of the current HTTP response header with a text pattern which can be the output of a macro, e.g. "id12345". It becomes valid if the text is found in the header key otherwise the tests fails.'
+        'rightLabelHTML': '<span style="color:#ea5906">assertHttpResponseHeader(&lt;macros&gt;/responseHeaderKey&lt;macros&gt;/text)</span>'
+
+    'assertNotHttpResponseCode':
+        'prefix': 'assertNotHttpResponseCode'
+        'body': 'assertNotHttpResponseCode(${1:"<macros>/text"})$2'
+        'description': 'This command tests the current HTTP response code with a text pattern which can be the output of a macro, e.g. "404". It becomes valid if the text is NOT the same as the response code otherwise the tests fails.'
+        'rightLabelHTML': '<span style="color:#ea5906">assertNotHttpResponseCode(&lt;macros&gt;/text)</span>'
+
+    'assertNotHttpResponseHeader':
+        'prefix': 'assertNotHttpResponseHeader'
+        'body': 'assertNotHttpResponseHeader(${1:"<macros>/responseHeaderKey","<macros>/text"})$2'
+        'description': 'This command tests the value of a key of the current HTTP response header with a text pattern which can be the output of a macro, e.g. "id12345". It becomes valid if the text is NOT found in the header key otherwise the tests fails.'
+        'rightLabelHTML': '<span style="color:#ea5906">assertNotHttpResponseHeader(&lt;macros&gt;/responseHeaderKey&lt;macros&gt;/text)</span>'
+
     'open':
         'prefix': 'open'
         'body': 'open(${1:"http://", "GET"})$2'
         'description': 'Open endpoint/URL'
         'rightLabelHTML': '<span style="color:#ea5906">open(url, method)</span>'
+
+    'openWhile':
+        'prefix': 'openWhile'
+        'body': 'openWhile(${1:"<macros>/URL","<macros>"})$2'
+        'description': 'Used in API Monitoring when the API client must submit a job to an API and it requires some time to be processed. The API client must continue to poll an API end point until its response states the job is complete. To handle such use case you must use a new verb, "openWhile", which will keep opening the specified URL until a specified condition is met, e.g. HTTP code is 200.'
+        'rightLabelHTML': '<span style="color:#ea5906">openWhile(url, method)</span>'
+
+    'pause':
+        'prefix': 'pause'
+        'body': 'pause(${1:"<macros>/number"})$2'
+        'description': 'This action tells the agent to pause for a set amount of time. The pause s wait time parameter can range between 100 to 30000 ms. Example: pause(5000).'
+        'rightLabelHTML': '<span style="color:#ea5906">pause(&lt;macros&gt;/number)</span>'
+
     'setStepName':
         'prefix': 'setStepName'
         'body': 'setStepName(${1:"name"})$2'
         'description': 'To assign names to each step a transaction creates'
         'rightLabelHTML': '<span style="color:#ea5906">setStepName(stepName)</span>'
+
     'setNavigatePostData':
         'prefix': 'setNavigatePostData'
         'body': 'setNavigatePostData(${1:"data"})$2'
         'description': 'This command is used to send POST data to the root request. Adding this command after open command converts the request to a POST request which by default will be a GET request.'
         'rightLabelHTML': '<span style="color:#ea5906">setNavigatePostData(data)</span>'
+
     'setHeader':
         'prefix': 'setHeader'
         'body': 'setHeader(${1:"key", "value", "pattern <optional>"})$2'
         'description': 'Used for dynamically assigning a particular HTTP request header for either the root-request (when no child-request-pattern is used) or child-requests (if the child-request-pattern is used).'
         'rightLabelHTML': '<span style="color:#ea5906">setHeader(key, value, pattern <optional>)</span>'
+
     'setHeaderAll':
         'prefix': 'setHeaderAll'
         'body': 'setHeaderAll(${1:"key", "value"})$2'
         'description': 'Same as "setHeader", except it will apply to all steps of a transaction. It dynamically assigns particular HTTP request header for either the root-request (when no child-request pattern is used) or child-request (if child-request pattern is used) for all steps of a transaction.'
         'rightLabelHTML': '<span style="color:#ea5906">setHeader(key, value, pattern <optional>)</span>'
+
+    'setIndicator':
+        'prefix': 'setIndicator'
+        'body': 'setIndicator(${1:"token", "<macros>/text"})$2'
+        'description': 'This verb allows the user to directly set an existing Insight Indicator with data from within a test. The indicator\'s format (regex) setting will be ignored and not be applied to the value. The numeric data from the indicator can also be graphed.'
+        'rightLabelHTML': '<span style="color:#ea5906">setIndicator(token, &lt;macros&gt;/text)</span>'
+
     'storeGlobalVariable':
         'prefix': 'storeGlobalVariable'
         'body': 'storeGlobalVariable(${1:"<macros>", ""<name>"})$2'
         'description': 'This transaction verb is used to store the variable data globally, and this data can be used later on via the "${globalVariable(…)}" macro.'
         'rightLabelHTML': '<span style="color:#ea5906">storeGlobalVariable(&lt;macros&gt;, &lt;name&gt;)</span>'
-    'assert':
-        'prefix': 'assert'
-        'body': 'assert(${1:"<macros>/text"})$2'
+
+    'setTracepoint':
+        'prefix': 'setTracepoint'
+        'body': 'setTracepoint(${1:"token", "<macros>/text"})$2'
+        'description': ' This verb allows the user to directly set an existing Insight Tracepoint with data from within a transaction test. The tracepoint\'s format (regex) setting will be ignored and not be applied to the value.'
+        'rightLabelHTML': '<span style="color:#ea5906">setTracepoint(token, &lt;macros&gt;/text)</span>'
+
+    'storeVariable':
+        'prefix': 'storeVariable'
+        'body': 'storeVariable(${1:"<macros>/text","VariableName"})$2'
+        'description': ' The first parameter is used to get the value to store, obtained via one or more macros (either "${extract(…)}" or "${extractVariable(…)}"). The second parameter is used for setting the name of the stored variable. Example: StoreVariable("${Extract(resp-header, regexp:set-cookie:(.*))}", "cookie")'
+        'rightLabelHTML': '<span style="color:#ea5906">storeVariable(&lt;macros&gt;,VariableName)</span>'
+
+    'verify':
+        'prefix': 'verify'
+        'body': 'verify(${1:"<macros>/text"})$2'
         'description': 'This command tests the current response with a simple text which can be the output of a macro. It becomes valid if the text is found in the response.'
-        'rightLabelHTML': '<span style="color:#ea5906">assert(&lt;macros&gt;/text)</span>'
-    'assertHttpResponseCode':
-        'prefix': 'assertHttpResponseCode'
-        'body': 'assertHttpResponseCode(${1:"<macros>/text"})$2'
+        'rightLabelHTML': '<span style="color:#ea5906">verify(&lt;macros&gt;/text)</span>'
+
+    'verifyHttpResponseCode':
+        'prefix': 'verifyHttpResponseCode'
+        'body': 'verifyHttpResponseCode(${1:"<macros>/text"})$2'
         'description': 'This command tests the current HTTP response code with a text pattern which can be the output of a macro, e.g. "200". It becomes valid if the text is same as the response code.'
-        'rightLabelHTML': '<span style="color:#ea5906">assertHttpResponseCode(&lt;macros&gt;/text)</span>'
-    'assertHttpResponseHeader':
-        'prefix': 'assertHttpResponseHeader'
-        'body': 'assertHttpResponseHeader(${1:"<macros>/responseHeaderKey","<macros>/text"})$2'
+        'rightLabelHTML': '<span style="color:#ea5906">verifyHttpResponseCode(&lt;macros&gt;/text)</span>'
+
+
+    'verifyHttpResponseHeader':
+        'prefix': 'verifyHttpResponseHeader'
+        'body': 'verifyHttpResponseHeader(${1:"<macros>/responseHeaderKey","<macros>/text"})$2'
         'description': 'This command tests the value of a key of the current HTTP response header with a text pattern which can be the output of a macro, e.g. "id12345". It becomes valid if the text is found in the header key.'
-        'rightLabelHTML': '<span style="color:#ea5906">assertHttpResponseHeader(&lt;macros&gt;/responseHeaderKey&lt;macros&gt;/text)</span>'
-    'assertNotHttpResponseCode':
-        'prefix': 'assertNotHttpResponseCode'
-        'body': 'assertNotHttpResponseCode(${1:"<macros>/text"})$2'
+        'rightLabelHTML': '<span style="color:#ea5906">verifyHttpResponseHeader(&lt;macros&gt;/responseHeaderKey&lt;macros&gt;/text)</span>'
+
+    'verifyNotHttpResponseCode':
+        'prefix': 'verifyNotHttpResponseCode'
+        'body': 'verifyNotHttpResponseCode(${1:"<macros>/text"})$2'
         'description': 'This command tests the current HTTP response code with a text pattern which can be the output of a macro, e.g. "404". It becomes valid if the text is NOT the same as the response code.'
-        'rightLabelHTML': '<span style="color:#ea5906">assertNotHttpResponseCode(&lt;macros&gt;/text)</span>'
-    'assertNotHttpResponseHeader':
-        'prefix': 'assertNotHttpResponseHeader'
-        'body': 'assertNotHttpResponseHeader(${1:"<macros>/responseHeaderKey","<macros>/text"})$2'
+        'rightLabelHTML': '<span style="color:#ea5906">verifyNotHttpResponseCode(&lt;macros&gt;/text)</span>'
+
+    'verifyNotHttpResponseHeader':
+        'prefix': 'verifyNotHttpResponseHeader'
+        'body': 'verifyNotHttpResponseHeader(${1:"<macros>/responseHeaderKey","<macros>/text"})$2'
         'description': 'This command tests the value of a key of the current HTTP response header with a text pattern which can be the output of a macro, e.g. "id12345". It becomes valid if the text is NOT found in the header key.'
-        'rightLabelHTML': '<span style="color:#ea5906">assertNotHttpResponseHeader(&lt;macros&gt;/responseHeaderKey&lt;macros&gt;/text)</span>'
+        'rightLabelHTML': '<span style="color:#ea5906">verifyNotHttpResponseHeader(&lt;macros&gt;/responseHeaderKey&lt;macros&gt;/text)</span>'
