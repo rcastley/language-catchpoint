@@ -16,10 +16,10 @@
   "dependencies": {},
   "keywords": [
     "language",
+    "grammar",  
     "snippets",
     "selenium",
     "syntax",
-    "atom",
     "editor"
   ]
 }
