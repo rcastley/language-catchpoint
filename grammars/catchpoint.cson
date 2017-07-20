@@ -12,7 +12,7 @@ patterns: [
         name: 'string.quoted.double.cps'
     }
     {
-        match: '(?i)(open|setHeaderAll|setHeader|setStepName|setNavigatePostData|setTracepoint|setIndicator|storeGlobalVariable|assertHttpResponseCode|storeVariable)'
+        match: '(?i)(assertHtmlSource|assertHttpResponseCode|assertHttpResponseHeader|assertNotHtmlSource|assertNotHttpResponseCode|assertNotHttpResponseHeader|assert|open|openWhile|pause|setHeaderAll|setHeader|setIndicator|setNavigatePostData|setStepName|setTracepoint|storeGlobalVariable|storeVariable|verify|verifyHtmlSource|verifyHttpResponseCode|verifyHttpResponseHeader|verifyNotHtmlSource|verifyNotHttpResponseCode|verifyNotHttpResponseHeader)'
         name: 'markup.bold.cps'
     }
     {
@@ -27,7 +27,7 @@ patterns: [
                 name: 'keyword.other.cps'
             '3':
                 name: 'keyword.other.cps'
-        match: '(?i)(\\$\\{(Extract|ExtractVariable|var|GlobalVariable|SequentialListByRun)\\(?).*?(\\)\\})'
+        match: '(?i)(\\$\\{(AsnName|AsnValue|Base64|CityId|CityName|ContinentName|CountryName|Extract|ExtractChild|ExtractVariable|File|GlobalVariable|Hash|Hex|HostRequestAuthority|HostRequestHost|HostRequestPath|HostRequestPathAndQuery|HostRequestQuery|HostRequestUrl|If|IpVersion|IspId|IspName|LocationId|LocationLatitude|LocationLongitude|LocationName|NetworkType|Password|Random|RandomGuid|RandomList|RegionName|SequentialList|SequentialListByLocation|SequentialListByRun|Switch|TestId|Time|TimeDay|TimeDiff|TimeEpoch|TimeFormat|TimeTrim|UrlDecode|UrlEncode|UserName|var)\\(?).*?(\\)\\})'
         name: 'string.quoted.double.cps'
     }
     {
