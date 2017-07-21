@@ -126,3 +126,34 @@
         'body': 'verifyNotHttpResponseHeader(${1:"<macros>/responseHeaderKey","<macros>/text"})$2'
         'description': 'This command tests the value of a key of the current HTTP response header with a text pattern which can be the output of a macro, e.g. "id12345". It becomes valid if the text is NOT found in the header key.'
         'rightLabelHTML': '<span style="color:#ea5906">verifyNotHttpResponseHeader(&lt;macros&gt;/responseHeaderKey&lt;macros&gt;/text)</span>'
+
+#MACROS
+    'Extract':
+        'prefix': 'Extract'
+        'body': '${Extract(‘respType’, ‘regExp’)}'
+        'description':'To obtain information from actual content of head request. "respType": Can be one of the following values: req-header (requesheaders), resp-content (response content), resp-header (response headers). "regExp": Regular expression. Example: ${Extract(\'req-header\',\'regexp:HTTP.(\\d\.\\d)\')} '
+        'rightLabelHTML':  '<span style="color:#ea5906">${Extract(‘respType’, ‘regExp’)}</span>'
+
+    'ExtractVariable':
+        'prefix': 'ExtractVariable'
+        'body': '${ExtractVariable(name)}'
+        'description':'This action extracts an already stored variable for use within the transaction test. It can be assigned via the “Var” modifier, or the “StoreVariable” command. Used for extracting variables within transaction tests. The synonym of this macro is ${Var()}. Example: ${ExtractVariable(foo)}'
+        'rightLabelHTML':  '<span style="color:#ea5906">${ExtractVariable(name)}</span>'
+
+    'Var':
+        'prefix': 'Var'
+        'body': '${Var(name)}'
+        'description':'This action extracts an already stored variable for use within the transaction test. It can be assigned via the “Var” modifier, or the “StoreVariable” command. Used for extracting variables within transaction tests. The synonym of this macro is ${ExtractVariable()}. Example: ${Var(foo)}'
+        'rightLabelHTML':  '<span style="color:#ea5906">${Var(name)}</span>'
+
+    'GlobalVariable':
+        'prefix': 'GlobalVariable'
+        'body': '${GlobalVariable(name)}'
+        'description':'Variable to be used across tests.  Useful when you are trying to use a variable in more than one test. This can only be used after doing StoreGlobalVariable.  If the global variable is not set, this macro will return nothing and it will not cause a failure. Example: StoreGlobalVariable(“${Extract(\'req-header\',\'regexp:HTTP.(\\d\.\\d)\')}”, “foo”) ${GlobalVariable(foo)}'
+        'rightLabelHTML':  '<span style="color:#ea5906">${GlobalVariable(name)}</span>'
+
+    'SequentialListByRun':
+        'prefix': 'SequentialListByRun'
+        'body': '${SequentialListByRun(values)}'
+        'description':'Returns a value from a list of values sequentially on a per test-run basis. Example: ${SequentialListByRun("red", "blue", "green")'
+        'rightLabelHTML':  '<span style="color:#ea5906">${SequentialListByRun(value1, value2, ..., valueN)}</span>'
