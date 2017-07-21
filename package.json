@@ -1,6 +1,6 @@
 {
   "name": "language-catchpoint",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Catchpoint Selenium Scripting Language",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
   "dependencies": {},
   "keywords": [
     "language",
-    "grammar",  
+    "grammar",
     "snippets",
     "selenium",
     "syntax",
