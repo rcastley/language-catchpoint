@@ -2,41 +2,108 @@ scopeName: 'source.cps'
 fileTypes: ['cps']
 name: 'Catchpoint Selenium Script'
 patterns: [
-    {
-        begin: '^//'
-        end: '\\n'
-        name: 'comment.line.double-slash.cps'
-    }
-    {
-        match: '(\\")'
-        name: 'string.quoted.double.cps'
-    }
-    {
-        match: '(?i)(assertHtmlSource|assertHttpResponseCode|assertHttpResponseHeader|assertNotHtmlSource|assertNotHttpResponseCode|assertNotHttpResponseHeader|assert|open|openWhile|pause|setHeaderAll|setHeader|setIndicator|setNavigatePostData|setStepName|setTracepoint|storeGlobalVariable|storeVariable|verifyHtmlSource|verifyHttpResponseCode|verifyHttpResponseHeader|verifyNotHtmlSource|verifyNotHttpResponseCode|verifyNotHttpResponseHeader|verify)'
-        name: 'markup.bold.cps'
-    }
-    {
-        include: 'text.hyperlink'
-    }
-    {
-        include: 'text.xml'
-    }
-    {
-        captures:
-            '1':
-                name: 'keyword.other.cps'
-            '3':
-                name: 'keyword.other.cps'
-        match: '(?i)(\\$\\{(AsnName|AsnValue|Base64|CityId|CityName|ContinentName|CountryName|ExtractChild|ExtractVariable|Extract|File|GlobalVariable|Hash|Hex|HostRequestAuthority|HostRequestHost|HostRequestPath|HostRequestPathAndQuery|HostRequestQuery|HostRequestUrl|If|IpVersion|IspId|IspName|LocationId|LocationLatitude|LocationLongitude|LocationName|NetworkType|Password|RandomGuid|RandomList|Random|RegionName|SequentialListByLocation|SequentialListByRun|SequentialList|Switch|TestId|TimeDay|TimeDiff|TimeEpoch|TimeFormat|TimeTrim|Time|UrlDecode|UrlEncode|UserName|var|add|offset|ref|sub)\\(?).*?(\\)?\\})'
-        name: 'string.quoted.double.cps'
-    }
-    {
-        captures:
-            '1':
-                name: 'keyword.control.cps'
-            '2':
-                name: 'variable.language.default.cps'
-        match: '(?i)(var)\\s*(\\w+)\\s+'
-        name: 'keyword.control.cps'
-    }
+  {
+    begin: '^//'
+    end: '\\n'
+    name: 'comment.line.double-slash.cps'
+  }
+  {
+#    begin: '(?i)(assertHtmlSource|assertHttpResponseCode|assertHttpResponseHeader|assertNotHtmlSource|assertNotHttpResponseCode|assertNotHttpResponseHeader|assert|open|openWhile|pause|setHeaderAll|setHeader|setIndicator|setNavigatePostData|setStepName|setTracepoint|storeGlobalVariable|storeVariable|verifyHtmlSource|verifyHttpResponseCode|verifyHttpResponseHeader|verifyNotHtmlSource|verifyNotHttpResponseCode|verifyNotHttpResponseHeader|verify|waitForNoRequest|clickAndWait|click)'
+    begin: '([a-zA-Z0-9]+)\\('
+    end: '\\n'
+    captures:
+      '1':
+        name: 'verb'
+    patterns: [
+      {
+        include: '#macros'
+      }
+      {
+        include: '#strings'
+      }
+    ]
+  }
+  {
+    include: 'text.hyperlink'
+  }
+  {
+    include: 'text.xml'
+  }
+  {
+    include: '#macros'
+  }
+  {
+    begin: '(?i)(var)\\s*(\\w+)\\s*'
+    end: '\\n'
+    name: 'verb'
+    captures:
+      '2':
+        name: 'storage.type.var.cps'
+    patterns: [
+      {
+        include: '#strings'
+      }
+      {
+        include: '#macros'
+      }
+    ]
+  }
 ]
+
+repository:
+  macros:
+    patterns: [
+      {
+        match: '(\\$\\{)([a-zA-Z0-9]+)([(]?)|(\\)?)(\\})'
+        name: 'entity.name.function.cps'
+        captures:
+          '2':
+            name: 'macro'
+      }
+    ]
+  strings:
+    patterns: [
+      {
+        begin: '"'
+        beginCaptures:
+          '0':
+            name: 'punctuation.definition.string.begin.cps'
+        end: '"'
+        endCaptures:
+          '0':
+            name: 'punctuation.definition.string.end.cps'
+        name: 'string.quoted.double.cps'
+        patterns: [
+          {
+            include: '#macros'
+          }
+        ]
+      }
+      {
+        begin: '\\\\\"'
+        beginCaptures:
+          '0':
+            name: 'punctuation.definition.string.begin.cps'
+        end: '\\\\\"'
+        endCaptures:
+          '0':
+            name: 'punctuation.definition.string.end.cps'
+        name: 'string.quoted.double.cps'
+      }
+      {
+        begin: '\''
+        beginCaptures:
+          '0':
+            name: 'punctuation.definition.string.begin.cps'
+        end: '\''
+        endCaptures:
+          '0':
+            name: 'punctuation.definition.string.end.cps'
+        name: 'string.quoted.single.cps'
+        patterns: [
+          {
+            include: '#macros'
+          }
+        ]
+      }
+    ]
