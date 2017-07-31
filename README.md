@@ -5,7 +5,7 @@ This extension adds support for Catchpoint Selenium Scripting.
 * Syntax highlighting
 * Snippets
 
-![Screenshot](https://github.com/rcastley/language-catchpoint/blob/master/screenshot.png)
+![Screenshot](screenshot.png)
 
 ## Install
 
