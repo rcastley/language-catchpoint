@@ -54,7 +54,7 @@ repository:
   macros:
     patterns: [
       {
-        match: '(\\$\\{)([a-zA-Z0-9]+)([(]?)|(\\)?)(\\})'
+        match: '(\\$\\{)([a-zA-Z0-9]+)([(]?)|(\\))(\\})'
         name: 'entity.name.function.cps'
         captures:
           '2':
