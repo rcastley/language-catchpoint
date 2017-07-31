@@ -5,6 +5,8 @@ This extension adds support for Catchpoint Selenium Scripting.
 * Syntax highlighting
 * Snippets
 
+![Screenshot](https://github.com/rcastley/language-catchpoint/blob/master/screenshot.png)
+
 ## Install
 
 Install the package `language-catchpoint` in Atom (Preferences->Packages) or Atom's package manager from a shell
@@ -15,7 +17,7 @@ $ apm install language-catchpoint
 
 ## Usage
 
-Ensure your script uses the .cps file extension
+Ensure your script uses the `.cps` file extension
 
 ## Bugs
 
